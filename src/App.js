@@ -25,6 +25,24 @@ class App extends React.Component {
     })
   }
 
+  deleteTodo = (id) => {
+    const { todos } = this.state;
+    this.setState({ todos: todos.filter(todo => todo.id !== id) })
+
+  }
+
+  completedTask = (id) => {
+    const { todos } = this.state;
+    todos.map(todo => {
+      if (todo.id === id) {
+        todo.completed = true
+      }
+      return todo;
+    })
+
+    this.setState({ todos })
+  }
+
   render() {
     return (
       <div className='App'>
@@ -34,7 +52,11 @@ class App extends React.Component {
         <button onClick={this.addToDo}>Add Text</button>
         {
           this.state.todos.map(todo => {
-            return <div key={todo.id}>{todo.title}</div>
+            return <div key={todo.id}>{todo.title}
+              <div onClick={() => this.deleteTodo(todo.id)}>X</div>
+              <div onClick={() => this.completedTask(todo.id)}>O</div>
+              <hr />
+            </div>
           })
         }
       </div >
