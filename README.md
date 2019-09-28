@@ -1,3 +1,5 @@
+## Purpose of the Project
+The aim of this project is simply a day to day code exercise before proceeding to actuall project.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
